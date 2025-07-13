@@ -3,7 +3,7 @@
 > A minimalist MP3‑player that turns your Windows terminal into an ASCII jukebox.
 
 <p align="center">
-  <img src="https://mega.nz/file/5UgSkBKA#tbf7wenwuP6pNJwkwr8G2SpHIEdu4IEE81Tctqabd9M" width="640"/>
+  <img src="https://github.com/RomFuture/mp-inTerminal/releases/download/ReadmeTag/0713.gif" width="640"/>
 </p>
 
 ---
