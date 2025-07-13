@@ -42,7 +42,6 @@ A tiny `config.json` lives next to the executable and stores:
 ```json
 {
   "music_dir": "C:/Users/You/Music",
-  "volume": 80
 }
 ```
 
