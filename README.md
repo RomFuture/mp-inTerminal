@@ -22,7 +22,7 @@
 ## 🚀 Installation
 
 1. **Download the executable**  
-   Grab the latest [`TerminalBeats.exe`](https://github.com/RomFuture/mp-inTerminal/releases/download/v0.5.5/TerminalBeats.exe) from the **Releases** page.
+   Grab the latest [`TerminalBeats.exe`](https://github.com/RomFuture/mp-inTerminal/releases/tag/ReadmeTag/TerminalBeats.exe) from the **Releases** page.
 
 2. **Run it**  
    Double‑click the file — no additional dependencies are required.
