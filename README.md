@@ -1,25 +1,49 @@
-Project Overview
-Terminal Beats is a lightweight MP3-player that runs entirely in your Windows terminal.
-It provides:
+# Terminal Beats
 
-Minimalist ASCII UI with logo, playlist, and real-time bar-style visualization.
+> A minimalist MP3‑player that turns your Windows terminal into an ASCII jukebox.
 
-Essential controls – Next ▶️, Stop ⏹, Previous ⏮, Exit ❌ – all navigable from the keyboard.
+<p align="center">
+  <img src="docs/screenshot.png" alt="Terminal Beats screenshot" width="640"/>
+</p>
 
-Live playback info – filename and elapsed/remaining time shown beneath the player.
+---
 
-Simple config – remembers the last music folder you pointed it to.
+## ✨ Features
 
-Installation
-Grab the executable
-Download the latest TerminalBeats.exe from the repository (or Releases tab).
+| | |
+|---|---|
+| 🎛 **ASCII interface** | Retro‑style logo, playlist pane and bar‑graph visualizer rendered right in the terminal. |
+| ⏯ **Essential controls** | **Next ▶️** · **Stop ⏹** · **Previous ⏮** · **Exit ❌** — all keyboard‑driven. |
+| 📜 **Now‑playing info** | Displays the current file name plus elapsed / remaining time. |
+| 🗂 **Folder memory** | Remembers the music directory you chose on first launch. |
 
-Run the installer / EXE
-Double-click the file. No additional dependencies are required.
+---
 
-Choose your music folder
-On first launch you’ll be asked for the path to the directory with your .mp3 files.
-(You can change it later by editing config.json or re-launching with a new path.)
+## 🚀 Installation
 
-Enjoy!
-The player starts immediately. Use the on-screen keys to skip, stop, or exit.
+1. **Download the executable**  
+   Grab the latest [`TerminalBeats.exe`](https://github.com/<your‑user>/mp‑inTerminal/releases) from the **Releases** page.
+
+2. **Run it**  
+   Double‑click the file — no additional dependencies are required.
+
+3. **Pick your music folder**  
+   On first launch you’ll be prompted to select a directory containing your `.mp3` files.  
+   (You can change this later by editing `config.json` or relaunching with a new path.)
+
+4. **Enjoy the beats!**  
+   Use the on‑screen keys to skip tracks, stop playback, or exit.
+
+---
+
+## 📝 Configuration
+A tiny `config.json` lives next to the executable and stores:
+
+```json
+{
+  "music_dir": "C:/Users/You/Music",
+  "volume": 80
+}
+```
+
+Feel free to tweak it manually.
