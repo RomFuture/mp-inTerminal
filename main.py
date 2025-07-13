@@ -1,4 +1,4 @@
-import os
+import os, sys, json
 import curses
 from itertools import count
 import time
@@ -44,9 +44,60 @@ r"""#########+..........-.....""",
 r"""-######+-.................""",
 ]
 
-# Путь к музыке
-music_folder = "D:\\123\\"
-music_files = [f for f in os.listdir(music_folder) if f.endswith('.mp3')]
+################################################################################
+# ────────────────────  БЛОК КОНФИГА  ──────────────────────────────────────────
+################################################################################
+
+CONFIG_FILE = os.path.join(os.path.dirname(sys.argv[0]), 'config.json')
+
+def load_last_path() -> str | None:
+    """Читаем сохранённый путь из config.json (если есть)."""
+    try:
+        with open(CONFIG_FILE, encoding='utf-8') as f:
+            data = json.load(f)
+            return data.get('music_folder')
+    except (FileNotFoundError, json.JSONDecodeError):
+        return None
+
+def save_last_path(path: str) -> None:
+    """Сохраняем выбранный путь в config.json."""
+    with open(CONFIG_FILE, 'w', encoding='utf-8') as f:
+        json.dump({'music_folder': path}, f, ensure_ascii=False, indent=2)
+
+def get_valid_mp3(folder: str) -> list[str]:
+    """Ищет mp3-файлы в папке (без учёта регистра)."""
+    return [f for f in os.listdir(folder) if f.lower().endswith('.mp3')]
+
+def ask_music_folder() -> tuple[str, list[str]]:
+    """Возвращает (music_folder, music_files), при необходимости спрашивая путь."""
+    # 1️⃣  пробуем взять путь из конфига
+    last_path = load_last_path()
+    if last_path and os.path.isdir(last_path):
+        files = get_valid_mp3(last_path)
+        if files:                       # всё ок – используем «старый» путь
+            print(f'🎵 Использую сохранённую папку: {last_path}')
+            return last_path, files
+        else:
+            print('⚠ Старая папка пуста или в ней нет MP3 – нужно выбрать новую.')
+
+    # 2️⃣  спрашиваем путь у пользователя
+    while True:
+        raw = input('\nВведите путь к папке с музыкой → ').strip(' "\'')
+        folder = os.path.abspath(os.path.expanduser(raw))
+        if not os.path.isdir(folder):
+            print('⛔ Папка не найдена. Попробуйте ещё раз.')
+            continue
+        files = get_valid_mp3(folder)
+        if not files:
+            print('⛔ В указанной папке нет MP3-файлов. Попробуйте другую.')
+            continue
+        save_last_path(folder)          # 3️⃣  сохраняем удачный выбор
+        return folder, files
+################################################################################
+
+# ─── основной код ─────────────────────────────────────────────────────────────
+music_folder, music_files = ask_music_folder()
+
 
 music_playing = True
 
