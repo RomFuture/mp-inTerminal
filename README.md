@@ -19,25 +19,21 @@
 
 ---
 
-## 🚀 Installation
+## Installation
 
 1. **Download the executable**  
    Grab the latest [`TerminalBeats.exe`](https://github.com/RomFuture/mp-inTerminal/releases/download/ReadmeTag/TerminalBeats.exe) from the **Releases** page.
 
-2. **Run it**  
-   Double‑click the file — no additional dependencies are required.
+2. **Run it**  Double‑click the file — no additional dependencies are required.
 
-3. **Pick your music folder**  
-   On first launch you’ll be prompted to select a directory containing your `.mp3` files.  
-   (You can change this later by editing `config.json` or relaunching with a new path.)
+3. **Pick your music folder**  On first launch you’ll be prompted to select a directory containing your `.mp3` files.  
 
-4. **Enjoy the beats!**  
-   Use the on‑screen keys to skip tracks, stop playback, or exit.
+4. **Enjoy!**  
 
 ---
 
-## 📝 Configuration
-A tiny `config.json` lives next to the executable and stores:
+## Configuration
+You can change the path to your music folder by editing the `config.json` file located inside the Music Player directory.
 
 ```json
 {
